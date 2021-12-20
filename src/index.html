@@ -13,28 +13,45 @@
     <footer class="footer-page">
         <nav class="nav-page">
             <ul>
-                <li class="nav-page__css">CSS</li>
-                <li class="nav-page__js">JS</li>
-                <li class="nav-page__react">React</li>
-                <li class="nav-page__create">Create!</li>
+                <li class="nav-page__css" data-name="css">CSS</li>
+                <li class="nav-page__js" data-name="js">JS</li>
+                <li class="nav-page__dom" data-name="dom">DOM</li>
+                <li class="nav-page__react" data-name="react">React</li>
+                <li class="nav-page__create" data-name="create">Create!</li>
             </ul>
         </nav>
     </footer>
     <main class="main-page">
-        <section class="css-expression">
+        <section class="expression css-expression hide" data-name="css">
             <ul>
-                <li class="content-item">
-                    <a href="#">flex</a>
-                </li>
-                <li class="content-item">
-                    <a href="#">grid</a>
-                </li>
+                <li class="content-item">flex</li>
+                <li class="content-item">grid</li>
+            </ul>
+        </section>
+        <section class="expression js-expression hide">
+            <ul>
+                <li class="content-item"></li>
+            </ul>
+        </section>
+        <section class="expression dom-expression hide" data-name="dom">
+            <ul>
+                <li class="content-item">querySelector</li>
+                <li class="content-item">querySelectorAll</li>
+                <li class="content-item">getElementById</li>
+                <li class="content-item">elem.matches(css)</li>
+                <li class="content-item">elem.closest(css)</li>
+                <li class="content-item">elemA.contains(elemB)</li>
+            </ul>
+        </section>
+        <section class="expression react-expression hide">
+            <ul>
+                <li class="content-item"></li>
             </ul>
         </section>
         <section class="description"></section>
     </main>
 
-    <script src="index.js"></script>
+    <script type="module" src="index.js"></script>
 </body>
 
 </html>

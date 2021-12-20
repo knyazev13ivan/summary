@@ -5,28 +5,41 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
+
     /* outline: 1px solid #666; outline-offset: -1px; */
 }
 
 body {
     font-family: 'Roboto-Light', sans-serif;
-    
+
     background-color: #151515;
     color: #ff7000;
 }
 
+/* tech */
+
+.hide {
+    display: none;
+}
+
+.active {
+    background-color: #151515;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: #90ff00;
+}
+
 /* nav */
 
-.footer-page{
+.footer-page {
     height: 60px;
-    padding: 10px;
+
+    background-color: #111111;
 }
 
 .nav-page ul {
     display: flex;
     flex-direction: rows;
-    justify-content: space-between;
 
     width: 50%;
 }
@@ -35,14 +48,20 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     position: relative;
-    
+
     font-size: 24px;
     width: 100px;
-    height: 40px;
-    
+    height: 60px;
+    cursor: pointer;
+
     overflow: hidden;
+}
+
+.nav-page ul li:hover,
+.content-item:hover {
+    background-color: #222222;
 }
 
 .nav-page ul li::before,
@@ -56,10 +75,9 @@ body {
     width: 100%;
     height: 1px;
     background-color: #90ff00;
-    /* background-coKlor: transparent; */
-    
+
     transform: translateX(-100%);
-    transition: transform 0.2s;
+    transition: transform 0.1s;
     transition-timing-function: ease-out;
 }
 
@@ -68,37 +86,37 @@ body {
     transform: translateX(0px);
 }
 
+/* .nav-page ul li:active::before {
+    transform: translateX(0px);
+} */
+
 /* content */
 
 .main-page {
     display: grid;
     grid-template-columns: 20% 80%;
-    /* display: flex; */
-    /* justify-content: start; */
-
-    margin: 10px;
 }
 
-.css-expression {
-}
+.expression {
+    padding: 10px;
 
-.description {
-    padding: 7px;
+    background-color: #121212;
 }
 
 .content-item {
+    display: block;
     position: relative;
+
+    padding: 5px;
+    width: 100%;
+    height: 100%;
+
+    color: #ffa090;
+    cursor: pointer;
 
     overflow: hidden;
 }
 
-.content-item a {
-    display: block;
-    
+.description {
     padding: 7px;
-    width: 100%;
-    height: 100%;
-
-    text-decoration: none;
-    color: #ffa090;
 }
