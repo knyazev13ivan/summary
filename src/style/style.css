@@ -31,7 +31,7 @@ body {
 
 /* nav */
 
-.footer-page {
+.header-page {
     height: 60px;
 
     background-color: #111111;
@@ -97,7 +97,7 @@ body {
     grid-template-columns: 20% 80%;
 }
 
-.expression {
+.terms {
     padding: 10px;
 
     background-color: #121212;
