@@ -23,32 +23,231 @@
     </header>
     <main class="main-page">
         <section class="terms css-terms hide" data-name="css">
-            <ul>
-                <li class="content-item">flex</li>
-                <li class="content-item">grid</li>
-            </ul>
+            <dl>
+                <dt class="term-item">flex</dt>
+                <dd class="description-item hide">
+
+                </dd>
+                <dt class="term-item">grid</dt>
+                <dd class="description-item hide">
+
+                </dd>
+            </dl>
         </section>
         <section class="terms js-terms hide">
-            <ul>
-                <li class="content-item"></li>
-            </ul>
+            <dl>
+                <dt class="term-item"></dt>
+                <dd class="description-item hide">
+
+                </dd>
+            </dl>
         </section>
         <section class="terms dom-terms hide" data-name="dom">
-            <ul>
-                <li class="content-item">querySelector</li>
-                <li class="content-item">querySelectorAll</li>
-                <li class="content-item">getElementById</li>
-                <li class="content-item">elem.matches(css)</li>
-                <li class="content-item">elem.closest(css)</li>
-                <li class="content-item">elemA.contains(elemB)</li>
-            </ul>
+            <dl>
+                <dt class="term-item">Навигация по DOM-элементам</dt>
+                <dd class="description-item description-item-1">
+                    Есть два основных набора ссылок:
+                    <p>
+                        <ul>
+                            <li>Для всех узлов: <code>parentNode</code>, <code>childNodes</code>,
+                                <code>firstChild</code>, <code>lastChild</code>, <code>previousSibling</code>,
+                                <code>nextSibling</code>.
+                            </li>
+                            <li>Только для узлов-элементов: <code>parentElement</code>, <code>children</code>,
+                                <code>firstElementChild</code>,
+                                <code>lastElementChild</code>,
+                                <code>previousElementSibling</code>, <code>nextElementSibling</code>.</li>
+                        </ul>
+                    </p>
+                    <p>Некоторые виды DOM-элементов, например таблицы, предоставляют дополнительные ссылки и
+                        коллекции для доступа к своему содержимому.</p>
+                </dd>
+                <dt class="term-item">Поиск elem.matches(css), elem.closest(css), elemA.contains(elemB)</dt>
+                <dd class="description-item hide">
+                    <p>
+                        <ul>
+                            <li>Есть метод <code>elem.matches(css)</code>, который проверяет, удовлетворяет ли элемент
+                                CSS-селектору.</li>
+                            <li>Метод <code>elem.closest(css)</code> ищет ближайшего по иерархии предка,
+                                соответствующему данному CSS-селектору. Сам элемент также включён в поиск.</li>
+                            <li><code>elemA.contains(elemB)</code> вернёт <code>true</code>, если <code>elemB</code>
+                                находится внутри <code>elemA</code> (<code>elemB</code> потомок <code>elemA</code>) или
+                                когда <code>elemA==elemB</code>.</li>
+                        </ul>
+                    </p>
+                </dd>
+                <dt class="term-item">Свойства узлов: тип, тег и содержимое</dt>
+                <dd class="description-item hide">
+                    <p><code>innerHTML</code></p>
+                    <p>Внутреннее HTML-содержимое узла-элемента. Можно изменять.</p>
+                    <p><code>outerHTML</code></p>
+                    <p>Полный HTML узла-элемента. Запись в elem.outerHTML не меняет elem. Вместо этого она заменяет его
+                        во
+                        внешнем контексте.</p>
+                    <p><code>textContent</code></p>
+                    <p>Текст внутри элемента: HTML за вычетом всех тегов. Запись в него помещает текст в элемент, при
+                        этом все специальные символы и теги интерпретируются как текст. Можно использовать для защиты от
+                        вставки произвольного HTML кода.</p>
+                    <p><code>hidden</code></p>
+                    <p>Когда значение установлено в <code>true</code>, делает то же самое, что и CSS
+                        <code>display:none</code>.
+                        В зависимости от своего класса DOM-узлы имеют и другие свойства. Например у элементов
+                        <code>input</code>
+                        (<code>HTMLInputElement</code>) есть свойства <code>value</code>, <code>type</code>, у элементов
+                        <code>a</code> (<code>HTMLAnchorElement</code>) есть <code>href</code> и
+                        т.д. Большинство стандартных HTML-атрибутов имеют соответствующие свойства DOM.</p>
+                </dd>
+                <dt class="term-item">Атрибуты и свойства</dt>
+                <dd class="description-item hide">
+                    <p>Методы для работы с атрибутами:
+                        <ul>
+                            <li><code>elem.hasAttribute(name)</code> – проверить на наличие.</li>
+                            <li><code>elem.getAttribute(name)</code> – получить значение.</li>
+                            <li><code>elem.setAttribute(name, value)</code> – установить значение.</li>
+                            <li><code>elem.removeAttribute(name)</code> – удалить атрибут.</li>
+                            <li><code>elem.attributes</code> – это коллекция всех атрибутов.</li>
+                        </ul>
+                    </p>
+                    <p>В большинстве ситуаций предпочтительнее использовать DOM-свойства. Нужно использовать атрибуты
+                        только тогда, когда DOM-свойства не подходят, когда нужны именно атрибуты, например:
+                        <ul>
+                            <li>Нужен нестандартный атрибут. Но если он начинается с <code>data-</code>, тогда нужно
+                                использовать
+                                <code>dataset</code>.</li>
+                            <li>Мы хотим получить именно то значение, которое написано в HTML. Значение DOM-свойства
+                                может быть
+                                другим, например, свойство <code>href</code> – всегда полный URL, а нам может
+                                понадобиться получить
+                                «оригинальное» значение.</li>
+                        </ul>
+                    </p>
+                </dd>
+                <dt class="term-item">Изменение документа</dt>
+                <dd class="description-item hide">
+                    <p>Методы для создания узлов:
+                        <ul>
+                            <li><code>document.createElement(tag)</code> – создаёт элемент с заданным тегом,</li>
+                            <li><code>document.createTextNode(value)</code> – создаёт текстовый узел (редко
+                                используется),</li>
+                            <li><code>elem.cloneNode(deep)</code> – клонирует элемент, если <code>deep==true</code>, то
+                                со всеми дочерними элементами.</li>
+                        </ul>
+                    </p>
+                    <p>Вставка и удаление:
+                        <ul>
+                            <li><code>node.append(...nodes or strings)</code> – вставляет в <code>node</code> в конец,
+                            </li>
+                            <li><code>node.prepend(...nodes or strings)</code> – вставляет в <code>node</code> в начало,
+                            </li>
+                            <li><code>node.before(...nodes or strings)</code> – вставляет прямо перед <code>node</code>,
+                            </li>
+                            <li><code>node.after(...nodes or strings)</code> – вставляет сразу после <code>node</code>,
+                            </li>
+                            <li><code>node.replaceWith(...nodes or strings)</code> – заменяет <code>node</code>.</li>
+                            <li><code>node.remove()</code> – удаляет <code>node</code>.</li>
+                        </ul>
+                    </p>
+
+                    <p>Если нужно вставить фрагмент HTML, то <code>elem.insertAdjacentHTML(where, html)</code> вставляет
+                        в
+                        зависимости
+                        от <code>where</code>:
+                        <ul>
+                            <li><code>"beforebegin"</code> – вставляет <code>html</code> прямо перед <code>elem</code>,
+                            </li>
+                            <li><code>"afterbegin"</code> – вставляет <code>html</code> в <code>elem</code> в начало,
+                            </li>
+                            <li><code>"beforeend"</code> – вставляет <code>html</code> в <code>elem</code> в конец,</li>
+                            <li><code>"afterend"</code> – вставляет <code>html</code> сразу после <code>elem</code>.
+                            </li>
+                        </ul>
+                    </p>
+                </dd>
+                <dt class="term-item">Стили и классы</dt>
+                <dd class="description-item hide">
+                    <p>
+                        <code>classList</code> – объект с методами <code>add/remove/toggle/contains</code>, удобно для
+                        управления отдельными
+                        классами.</p>
+                    <p>Для чтения окончательных стилей (с учётом всех классов, после применения CSS и вычисления
+                        окончательных значений) используется метод <code>getComputedStyle(elem, [pseudo])</code>
+                        возвращает объект, похожий по формату на <code>style</code>. Только
+                        для
+                        чтения.</p>
+                    <p> Результат вызова – объект со стилями, похожий на <code>elem.style</code>, но с учётом всех
+                        CSS-классов.</p>
+                </dd>
+                <dt class="term-item">Размеры и прокрутка элементов</dt>
+                <dd class="description-item hide">
+                    <p>
+                        У элементов есть следующие геометрические свойства (метрики):
+                        <ul>
+
+                            <li><code>offsetParent</code> – ближайший CSS-позиционированный родитель или ближайший
+                                <code>td</code>, <code>th</code>, <code>table</code>, <code>body</code>.</li>
+                            <li><code>offsetLeft/offsetTop</code> – позиция в пикселях верхнего левого угла относительно
+                                offsetParent.</li>
+                            <li><code>offsetWidth/offsetHeight</code> – «внешняя» ширина/высота элемента, включая рамки.
+                            </li>
+                            <li><code>clientLeft/clientTop</code> – расстояние от верхнего левого внешнего угла до
+                                внутренного. Для
+                                операционных систем с ориентацией слева-направо эти свойства равны ширинам левой/верхней
+                                рамки.
+                                Если язык ОС таков, что ориентация справа налево, так что вертикальная полоса прокрутки
+                                находится не справа, а слева, то <code>clientLeft</code> включает в своё значение её
+                                ширину.</li>
+                            <li><code>clientWidth/clientHeight</code> – ширина/высота содержимого вместе с внутренними
+                                отступами <code>padding</code>,
+                                но
+                                без полосы прокрутки.</li>
+                            <li><code>scrollWidth/scrollHeight</code> – ширины/высота содержимого, аналогично
+                                <code>clientWidth/Height</code>, но
+                                учитывают прокрученную, невидимую область элемента.</li>
+                            <li><code>scrollLeft/scrollTop</code> – ширина/высота прокрученной сверху части элемента,
+                                считается от
+                                верхнего
+                                левого угла.</li>
+                        </ul>
+                    </p>
+                    <p>Все свойства доступны только для чтения, кроме <code>scrollLeft/scrollTop</code>, изменение
+                        которых
+                        заставляет браузер прокручивать элемент.</p>
+                </dd>
+                <dt class="term-item">Размеры и прокрутка окна</dt>
+                <dd class="description-item hide">
+                    <p>Размеры:
+                        <ul>
+                    <li>Ширина/высота видимой части документа (ширина/высота области содержимого):
+                    <code>document.documentElement.clientWidth/Height</code></li>
+
+                    <li>Ширина/высота всего документа со всей прокручиваемой областью страницы:
+
+                    <p><code>let scrollHeight = Math.max(
+                    document.body.scrollHeight, document.documentElement.scrollHeight,
+                    document.body.offsetHeight, document.documentElement.offsetHeight,
+                    document.body.clientHeight, document.documentElement.clientHeight
+                    );</code></p></li></ul></p>
+                    <p>Прокрутка:
+<ul>
+                    <li>Прокрутку окна можно получить так: <code>window.pageYOffset/pageXOffset</code>.</li>
+
+                    <li>Изменить текущую прокрутку:
+<ul>
+                    <li><code>window.scrollTo(pageX,pageY)</code> – абсолютные координаты,</li>
+                    <li><code>window.scrollBy(x,y)</code> – прокрутка относительно текущего места,</li>
+                    <li><code>elem.scrollIntoView(top)</code> – прокрутить страницу так, чтобы сделать <code>elem</code> видимым (выровнять
+                    относительно верхней/нижней части окна).</li></li></ul></ul></p>
+                </dd>
+            </dl>
         </section>
         <section class="terms react-terms hide">
-            <ul>
-                <li class="content-item"></li>
-            </ul>
+            <dl>
+                <dt class="term-item"></dt>
+                <dd class="description-item hide">
+
+                </dd>
+            </dl>
         </section>
-        <section class="description"></section>
     </main>
 
     <script type="module" src="index.js"></script>

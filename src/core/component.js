@@ -8,6 +8,7 @@ export class Component {
   init() {}
 
   hide() {
+    console.log(this.$el);
     this.$el.classList.add('hide')
   }
 
