@@ -26,11 +26,60 @@
             <dl>
                 <dt class="term-item">flex</dt>
                 <dd class="description-item hide">
-
+                    <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">css tricks flex</a>
+                    <p>
+                        <pre>
+    .parent {
+        <code>display</code>: flex | inline-flex;
+        <code>flex-direction</code>: row | row-reverse | column | column-reverse;
+        <code>flex-wrap</code>: nowrap | wrap | wrap-reverse;
+        <code>justify-content</code>: flex-start | flex-end | center | space-between |
+            | space-around | space-evenly;
+        <code>align-items</code>: stretch | flex-start | flex-end | center | baseline;
+        <code>align-content</code>: flex-start | flex-end | center | stretch | space-between |
+            | space-around | space-evenly;
+    }
+    .child {
+        <code>order</code>: 1 | 5;    //порядок элементов (default: 1)
+        <code>flex-grow</code>: 1 | 3;   //пропорция элемента (default: 1)
+        <code>flex-shrink</code>: 0 | 1 | 3;    //способность сжиматься при неободмости
+        <code>flex-basis</code>: 20% | 5rem | auto;    //размер элемента по умолчанию
+        <code>flex</code>: none | [ 'flex-grow' 'flex-shrink' 'flex-basis' ];    //(default: 0 1 auto)
+        <code>align-self</code>: auto | flex-start | flex-end | center | baseline | stretch;
+    }
+                        </pre>
+                    </p>
                 </dd>
                 <dt class="term-item">grid</dt>
                 <dd class="description-item hide">
-
+                    <a href="https://css-tricks.com/snippets/css/complete-guide-grid/">css-tricks grid</a>
+                    <p>
+                        <pre>
+    .parent {
+        <code>display</code>: grid | inline-grid | subgrid;
+        <code>justify-items</code>: start | end | center | stretch;   //содержимое внутри элемента
+        <code>align-items</code>: start | end | center | stretch;   //содержимое внутри элемента
+        <code>justify-content</code>: start | end | center | stretch |
+            | space-between | space-around | space-evenly;
+        <code>align-content</code>: start | end | center | stretch |
+            | space-between | space-around | space-evenly;
+        <code>grid-auto-flow</code>: row | column | dense;
+        <code>grid-template-columns</code>: 1fr 1fr | minmax(10px, 1fr) 3fr
+            | repeat(5, 1fr) | 50px auto 100px 1fr
+        <code>grid-template-rows</code>: min-content 1fr min-content | 100px 1fr max-content
+            | [row1-start] 25% [row1-end row2-start] 25% [row2-end]
+        <code>grid-template-areas</code>: 
+            "header header header header"
+            "main main . sidebar";
+    }
+    .child {
+        <code>justify-self</code>: start | end | center | stretch;
+        <code>align-self</code>: start | end | center | stretch;
+        <code>grid-column</code>: 'start-line' / 'end-line' | 'start-line' / span 'value';
+        <code>grid-row</code>: 'start-line' / 'end-line' | 'start-line' / span 'value';
+        <code>grid-area</code>: main;
+    }</pre>
+                    </p>
                 </dd>
             </dl>
         </section>
@@ -179,6 +228,7 @@
                 </dd>
                 <dt class="term-item">Размеры и прокрутка элементов</dt>
                 <dd class="description-item hide">
+                    <img src="./assets/image/metric-all.svg" alt="" width="670" height="602">
                     <p>
                         У элементов есть следующие геометрические свойства (метрики):
                         <ul>
@@ -217,26 +267,59 @@
                 <dd class="description-item hide">
                     <p>Размеры:
                         <ul>
-                    <li>Ширина/высота видимой части документа (ширина/высота области содержимого):
-                    <code>document.documentElement.clientWidth/Height</code></li>
+                            <li>Ширина/высота видимой части документа (ширина/высота области содержимого):
+                                <code>document.documentElement.clientWidth/Height</code></li>
 
-                    <li>Ширина/высота всего документа со всей прокручиваемой областью страницы:
+                            <li>Ширина/высота всего документа со всей прокручиваемой областью страницы:
 
-                    <p><code>let scrollHeight = Math.max(
-                    document.body.scrollHeight, document.documentElement.scrollHeight,
-                    document.body.offsetHeight, document.documentElement.offsetHeight,
-                    document.body.clientHeight, document.documentElement.clientHeight
-                    );</code></p></li></ul></p>
+                                <p><code>let scrollHeight = Math.max(
+                                        document.body.scrollHeight, document.documentElement.scrollHeight,
+                                        document.body.offsetHeight, document.documentElement.offsetHeight,
+                                        document.body.clientHeight, document.documentElement.clientHeight
+                                        );</code></p>
+                            </li>
+                        </ul>
+                    </p>
                     <p>Прокрутка:
-<ul>
-                    <li>Прокрутку окна можно получить так: <code>window.pageYOffset/pageXOffset</code>.</li>
+                        <ul>
+                            <li>Прокрутку окна можно получить так: <code>window.pageYOffset/pageXOffset</code>.</li>
 
-                    <li>Изменить текущую прокрутку:
-<ul>
-                    <li><code>window.scrollTo(pageX,pageY)</code> – абсолютные координаты,</li>
-                    <li><code>window.scrollBy(x,y)</code> – прокрутка относительно текущего места,</li>
-                    <li><code>elem.scrollIntoView(top)</code> – прокрутить страницу так, чтобы сделать <code>elem</code> видимым (выровнять
-                    относительно верхней/нижней части окна).</li></li></ul></ul></p>
+                            <li>Изменить текущую прокрутку:
+                                <ul>
+                                    <li><code>window.scrollTo(pageX,pageY)</code> – абсолютные координаты,</li>
+                                    <li><code>window.scrollBy(x,y)</code> – прокрутка относительно текущего места,</li>
+                                    <li><code>elem.scrollIntoView(top)</code> – прокрутить страницу так, чтобы сделать
+                                        <code>elem</code> видимым (выровнять
+                                        относительно верхней/нижней части окна).</li>
+                            </li>
+                        </ul>
+                        </ul>
+                    </p>
+                </dd>
+                <dt class="term-item">Координаты</dt>
+                <dd class="description-item hide">
+                    <p>Любая точка на странице имеет координаты:
+                        <ul>
+                            <li>Относительно окна браузера – <code>elem.getBoundingClientRect()</code>.</li>
+                            <li>Относительно документа – <code>elem.getBoundingClientRect()</code> плюс текущая
+                                прокрутка страницы.</li>
+                        </ul>
+                    </p>
+                    <p>
+                        Вызов <code>document.elementFromPoint(x, y)</code> возвращает самый глубоко вложенный элемент в
+                        окне, находящийся по координатам <code>(x, y)</code>.
+                    </p>
+                    <p>
+                        Для координат за пределами окна метод <code>elementFromPoint</code> возвращает <code>null</code>
+                    </p>
+                    <p>
+                        Метод <code>document.elementFromPoint(x,y)</code> работает, только если координаты
+                        <code>(x,y)</code> относятся к видимой
+                        части содержимого окна.</p>
+                    <p>
+                        Если любая из координат представляет собой отрицательное число или превышает размеры окна, то
+                        возвращается <code>null</code>.
+                    </p>
                 </dd>
             </dl>
         </section>

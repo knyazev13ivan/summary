@@ -11,7 +11,7 @@
 
 body {
     font-size: 16px;
-    line-height: 24px;
+    line-height: 1;
     font-family: 'Roboto-Light', sans-serif;
 
     background-color: #181818;
@@ -27,7 +27,7 @@ body {
 .active {
     background-color: #181818;
     color: #ffa090 !important;
-    
+
     border-left-width: 2px;
     border-left-style: solid;
     border-left-color: rgba(93, 231, 178, 0.18);
@@ -35,13 +35,13 @@ body {
 
 code {
     font-size: 1pc;
-    
+
     padding-right: 4px;
     padding-left: 4px;
-    
+
     color: #cecece;
     background-color: rgba(93, 231, 178, 0.18);
-    
+
     border-radius: 2px;
 }
 
@@ -49,14 +49,14 @@ code {
 
 .header-page {
     height: 60px;
-    
+
     background-color: #111111;
 }
 
 .nav-page ul {
     display: flex;
     flex-direction: rows;
-    
+
     width: 50%;
 }
 
@@ -64,16 +64,16 @@ code {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     position: relative;
-    
+
     font-size: 24px;
     width: 100px;
     height: 60px;
-    
+
     color: rgba(255, 161, 144, 0.7);
     cursor: pointer;
-    
+
     overflow: hidden;
 }
 
@@ -87,7 +87,7 @@ code {
 
 .terms {
     position: relative;
-    
+
     padding-top: 20px;
     padding-bottom: 20px;
     width: 24%;
@@ -98,19 +98,18 @@ code {
 
 .term-item {
     display: block;
-    position: relative;
-    
-    line-height: 16px;
+
+    line-height: 1;
 
     padding-top: 5px;
-    padding-right: 30px;
+    padding-right: 10px;
     padding-bottom: 5px;
     padding-left: 30px;
     height: 100%;
-    
+
     color: rgba(255, 161, 144, 0.7);
     cursor: pointer;
-    
+
     overflow: hidden;
 }
 
@@ -119,8 +118,9 @@ code {
     left: 100%;
     top: 0;
 
+    line-height: 1.5;
+
     width: 800px;
-    padding: 0px;
     padding-top: 20px;
     padding-right: 20%;
     padding-bottom: 20px;
@@ -138,4 +138,9 @@ code {
     margin-bottom: 5px;
 
     list-style-type: disc;
+}
+
+.description-item a,
+.description-item a:visited {
+    color:rgb(255, 161, 144)
 }
