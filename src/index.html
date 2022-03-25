@@ -14,10 +14,9 @@
         <nav class="nav-page">
             <ul>
                 <li class="tabs nav-page__css" data-name="css">CSS</li>
-                <li class="tabs nav-page__js" data-name="js">JS</li>
+                <!-- <li class="tabs nav-page__js" data-name="js">JS</li> -->
                 <li class="tabs nav-page__dom" data-name="dom">DOM</li>
                 <li class="tabs nav-page__react" data-name="react">React</li>
-                <li class="tabs nav-page__create" data-name="create">Create!</li>
             </ul>
         </nav>
     </header>
@@ -83,14 +82,14 @@
                 </dd>
             </dl>
         </section>
-        <section class="terms js-terms hide">
+        <!-- <section class="terms js-terms hide">
             <dl>
                 <dt class="term-item"></dt>
                 <dd class="description-item hide">
 
                 </dd>
             </dl>
-        </section>
+        </section> -->
         <section class="terms dom-terms hide" data-name="dom">
             <dl>
                 <dt class="term-item">Навигация по DOM-элементам</dt>
@@ -510,6 +509,159 @@
                                 автоматически, когда происходит событие <code>pointerup/pointercancel</code>.</li>
                         </ul>
                     </p>
+                </dd>
+                <dt class="term-item">Свойства и методы формы</dt>
+                <dd class="description-item hide">
+                    <p>Свойства для навигации по формам:
+                        <ul>
+                            <li><code>document.forms</code><br />
+                                Форма доступна через <code>document.forms[name/index]</code>.</li>
+                            <li><code>form.elements</code><br />
+                                Элементы формы доступны через <code>form.elements[name/index]</code>, или можно просто
+                                использовать
+                                <code>form[name/index]</code>. Свойство <code>elements</code> также работает для
+                                <code>'fieldset'</code>.</li>
+                            <li><code>element.form</code><br />
+                                Элементы хранят ссылку на свою форму в свойстве <code>form</code>.</li>
+                        </ul>
+                    </p>
+                    <p>Значения элементов формы доступны через <code>input.value</code>, <code>textarea.value</code>,
+                        <code>select.value</code> и т.д. либо
+                        <code>input.checked</code> для чекбоксов и переключателей.
+                    </p>
+                    <p>
+                        Для элемента <code>'select'</code> мы также можем получить индекс выбранного пункта через
+                        <code>select.selectedIndex</code>, либо используя коллекцию пунктов <code>select.options</code>.
+                    </p>
+                </dd>
+                <dt class="term-item">Фокусировка: focus/blur</dt>
+                <dd class="description-item hide">
+                    <p>События <code>focus</code> и <code>blur</code> срабатывают на фокусировке/потере фокуса элемента.
+                    </p>
+                    <p>Их особенности:
+                        <ul>
+                            <li>Они не всплывают. Но можно использовать фазу перехвата или
+                                <code>focusin/focusout</code>.</li>
+                            <li>Большинство элементов не поддерживают фокусировку по умолчанию. Используйте
+                                <code>tabindex</code>,
+                                чтобы сделать
+                                фокусируемым любой элемент.</li>
+                        </ul>
+                    </p>
+                    <p>
+                        Текущий элемент с фокусом можно получить из <code>document.activeElement</code>.</p>
+                </dd>
+                <dt class="term-item">События: change, input, cut, copy, paste</dt>
+                <dd class="description-item hide">
+                    <p>События изменения данных:</p>
+                    <p><code>change</code><br> Значение было изменено. Для текстовых полей срабатывает при потере
+                        фокуса.</p>
+                    <p><code>input</code><br> Срабатывает при каждом изменении значения. Запускается немедленно, в
+                        отличие от <code>change</code>.
+                    </p>
+                    <p><code>cut/copy/paste</code><br> Действия по вырезанию/копированию/вставке. Действие можно
+                        предотвратить.
+                        Свойство
+                        <code>event.clipboardData</code> предоставляет доступ на чтение/запись в буфер обмена…</p>
+                </dd>
+                <dt class="term-item">Отправка формы: событие и метод submit</dt>
+                <dd class="description-item hide">
+                    <p>При отправки формы сгенерируется событие <code>submit</code> на форме. Обработчик может проверить
+                        данные, и если есть
+                        ошибки, показать их и вызвать <code>event.preventDefault()</code>, тогда форма не будет
+                        отправлена на сервер.</p>
+
+                    <p>Чтобы отправить форму на сервер вручную, мы можем вызвать метод <code>form.submit()</code>.</p>
+
+                    <p>При этом событие <code>submit</code> не генерируется. Предполагается, что если программист
+                        вызывает метод
+                        <code>form.submit()</code>, то он уже выполнил всю соответствующую обработку.</p>
+                </dd>
+                <dt class="term-item">Страница: DOMContentLoaded, load, beforeunload, unload</dt>
+                <dd class="description-item hide">
+                    <p>События загрузки страницы:
+                        <ul>
+                            <li><code>DOMContentLoaded</code> генерируется на <code>document</code>, когда
+                                <code>DOM</code> готов. Мы можем применить
+                                JavaScript к
+                                элементам на данном этапе.
+                                <ul>
+                                    <li>Скрипты, вроде <code>'script' ... '/script'</code> или <code>'script
+                                            src="..."''/script'</code> блокируют
+                                        <code>DOMContentLoaded</code>,
+                                        браузер ждёт, пока они
+                                        выполнятся.</li>
+                                    <li>Изображения и другие ресурсы тоже всё ещё могут продолжать загружаться.</li>
+                                </ul>
+                            </li>
+                            <li>Событие <code>load</code> на <code>window</code> генерируется, когда страница и все
+                                ресурсы загружены. Мы редко
+                                его
+                                используем, потому что обычно нет нужды ждать так долго.</li>
+                            <li>Событие <code>beforeunload</code> на <code>window</code> генерируется, когда
+                                пользователь покидает страницу. Если
+                                мы
+                                отменим
+                                событие, браузер спросит, на самом ли деле пользователь хочет уйти (например, у нас есть
+                                несохранённые изменения).</li>
+                            <li>Событие <code>unload</code> на <code>window</code> генерируется, когда пользователь
+                                окончательно уходит, в
+                                обработчике
+                                мы
+                                можем делать только простые вещи, которые ни о чём не спрашивают пользователя и не
+                                заставляют его
+                                ждать. Из-за этих ограничений оно редко используется. Мы можем послать сетевой запрос с
+                                помощью
+                                <code>navigator.sendBeacon</code>.</li>
+                            <li><code>document.readyState</code> – текущее состояние документа, изменения можно
+                                отследить с помощью
+                                события
+                                <code>readystatechange</code>:
+                                <ul>
+                                    <li><code>loading</code> – документ грузится.</li>
+                                    <li><code>interactive</code> – документ прочитан, происходит примерно в то же время,
+                                        что и
+                                        <code>DOMContentLoaded</code>, но до
+                                        него.</li>
+                                    <li><code>complete</code> – документ и ресурсы загружены, происходит примерно в то
+                                        же время, что
+                                        и
+                                        <code>window.onload</code>, но
+                                        до него.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </p>
+                </dd>
+                <dt class="term-item">Скрипты: async, defer</dt>
+                <dd class="description-item hide">
+                    <p><code>async</code><br> Порядок загрузки (кто загрузится первым, тот и сработает). Не имеет
+                        значения. Может
+                        загрузиться и выполниться до того, как страница полностью загрузится. Такое случается, если
+                        скрипты
+                        маленькие или хранятся в кеше, а документ достаточно большой.</p>
+                    <p><code>defer</code><br> Порядок документа (как расположены в документе). Выполняется после того,
+                        как документ
+                        загружен
+                        и обработан (ждёт), непосредственно перед <code>DOMContentLoaded</code>.</p>
+                    <p>Страница без скриптов должна быть рабочей</p>
+                    <p>Когда вы используете <code>defer</code>, страница видна до того, как скрипт
+                        загрузится.
+                        <br>
+                        Пользователь может знакомиться с содержимым страницы, читать её, но графические компоненты пока
+                        отключены.
+                        <br>
+                        Поэтому обязательно должна быть индикация загрузки, нерабочие кнопки – отключены с помощью CSS
+                        или
+                        другим образом. Чтобы пользователь явно видел, что уже готово, а что пока нет.
+                    </p>
+                    <p>На практике <code>defer</code> используется для скриптов, которым требуется доступ ко всему DOM
+                        и/или важен их
+                        относительный порядок выполнения.</p>
+
+                    <p>А <code>async</code> хорош для независимых скриптов, например счётчиков и рекламы, относительный
+                        порядок
+                        выполнения которых не играет роли.</p>
                 </dd>
             </dl>
         </section>
