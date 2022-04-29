@@ -1,4 +1,4 @@
-/* @import 'roboto.css'; */
+@import 'roboto.css';
 
 * {
     list-style: none;
@@ -88,11 +88,11 @@ code {
 .terms {
     position: relative;
 
-    padding-top: 20px;
+    padding-top: 10px;
     padding-bottom: 20px;
-    width: 24%;
+    width: 20%;
     min-height: 635px;
-    
+
     background-color: #181818;
 }
 
@@ -101,10 +101,10 @@ code {
 
     line-height: 1;
 
-    padding-top: 5px;
-    padding-right: 10px;
+    padding-top: 3px;
+    padding-right: 7px;
     padding-bottom: 5px;
-    padding-left: 30px;
+    padding-left: 7px;
     height: 100%;
 
     color: rgba(255, 161, 144, 0.7);
@@ -118,13 +118,13 @@ code {
     left: 100%;
     top: 0;
 
-    line-height: 1.5;
+    line-height: 1.4em;
 
-    width: 800px;
-    padding-top: 20px;
-    padding-right: 20%;
-    padding-bottom: 20px;
-    padding-left: 20%;
+    min-width: 900px;
+    padding-top: 10px;
+    padding-right: 10%;
+    padding-bottom: 10px;
+    padding-left: 10%;
 
     color: #bbbbbb;
 }
@@ -142,5 +142,20 @@ code {
 
 .description-item a,
 .description-item a:visited {
-    color:rgb(255, 161, 144)
+    color: rgb(255, 161, 144)
+}
+
+.description-item .cheatsheets-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.description-item .cheatsheets-images img {
+    width: 100%;
+}
+
+.description-item .cheatsheets-images img:hover {
+    position: absolute;
+    width: 100%;
+    z-index: 10;
 }

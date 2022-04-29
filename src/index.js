@@ -1,4 +1,4 @@
-// import './style/style.css'
+import './style/style.css'
 
 import {
   NavigationComponent
@@ -12,6 +12,7 @@ const navigation = new NavigationComponent('.nav-page')
 const cssTerms = new TermsComponent('.css-terms')
 // const jsTerms = new TermsComponent('.js-terms')
 const domTerms = new TermsComponent('.dom-terms')
+const tsTerms = new TermsComponent('.ts-terms')
 const reactTerms = new TermsComponent('.react-terms')
 
 navigation.registerTabs([{
@@ -22,6 +23,10 @@ navigation.registerTabs([{
   //   name: 'js',
   //   component: jsTerms
   // },
+  {
+    name: 'ts',
+    component: tsTerms
+  },
   {
     name: 'dom',
     component: domTerms

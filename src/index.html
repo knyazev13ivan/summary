@@ -2,32 +2,36 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Summary</title>
-    <link rel="stylesheet" href="style/style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Summary</title>
+  <!-- <link rel="stylesheet" href="style/style.css"> -->
 </head>
 
 <body>
-    <header class="header-page">
-        <nav class="nav-page">
-            <ul>
-                <li class="tabs nav-page__css" data-name="css">CSS</li>
-                <!-- <li class="tabs nav-page__js" data-name="js">JS</li> -->
-                <li class="tabs nav-page__dom" data-name="dom">DOM</li>
-                <li class="tabs nav-page__react" data-name="react">React</li>
-            </ul>
-        </nav>
-    </header>
-    <main class="main-page">
-        <section class="terms css-terms hide" data-name="css">
-            <dl>
-                <dt class="term-item">flex</dt>
-                <dd class="description-item hide">
-                    <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">css tricks flex</a>
-                    <p>
-                        <pre>
+
+  <header class="header-page">
+    <nav class="nav-page">
+      <ul>
+        <li class="tabs nav-page__css" data-name="css">CSS</li>
+        <!-- <li class="tabs nav-page__js" data-name="js">JS</li> -->
+        <li class="tabs nav-page__dom" data-name="dom">DOM</li>
+        <li class="tabs nav-page__ts" data-name="ts">TS</li>
+        <li class="tabs nav-page__react" data-name="react">React</li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main-page">
+
+    <section class="terms css-terms hide" data-name="css">
+      <dl>
+        <dt class="term-item">flex</dt>
+        <dd class="description-item hide">
+          <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">css tricks flex</a>
+          <p>
+            <pre>
     .parent {
         <code>display</code>: flex | inline-flex;
         <code>flex-direction</code>: row | row-reverse | column | column-reverse;
@@ -47,13 +51,13 @@
         <code>align-self</code>: auto | flex-start | flex-end | center | baseline | stretch;
     }
                         </pre>
-                    </p>
-                </dd>
-                <dt class="term-item">grid</dt>
-                <dd class="description-item hide">
-                    <a href="https://css-tricks.com/snippets/css/complete-guide-grid/">css-tricks grid</a>
-                    <p>
-                        <pre>
+          </p>
+        </dd>
+        <dt class="term-item">grid</dt>
+        <dd class="description-item hide">
+          <a href="https://css-tricks.com/snippets/css/complete-guide-grid/">css-tricks grid</a>
+          <p>
+            <pre>
     .parent {
         <code>display</code>: grid | inline-grid | subgrid;
         <code>justify-items</code>: start | end | center | stretch;   //содержимое внутри элемента
@@ -78,11 +82,12 @@
         <code>grid-row</code>: 'start-line' / 'end-line' | 'start-line' / span 'value';
         <code>grid-area</code>: main;
     }</pre>
-                    </p>
-                </dd>
-            </dl>
-        </section>
-        <!-- <section class="terms js-terms hide">
+          </p>
+        </dd>
+      </dl>
+    </section>
+
+    <!-- <section class="terms js-terms hide">
             <dl>
                 <dt class="term-item"></dt>
                 <dd class="description-item hide">
@@ -90,592 +95,675 @@
                 </dd>
             </dl>
         </section> -->
-        <section class="terms dom-terms hide" data-name="dom">
-            <dl>
-                <dt class="term-item">Навигация по DOM-элементам</dt>
-                <dd class="description-item description-item-1">
-                    Есть два основных набора ссылок:
-                    <p>
-                        <ul>
-                            <li>Для всех узлов: <code>parentNode</code>, <code>childNodes</code>,
-                                <code>firstChild</code>, <code>lastChild</code>, <code>previousSibling</code>,
-                                <code>nextSibling</code>.
-                            </li>
-                            <li>Только для узлов-элементов: <code>parentElement</code>, <code>children</code>,
-                                <code>firstElementChild</code>,
-                                <code>lastElementChild</code>,
-                                <code>previousElementSibling</code>, <code>nextElementSibling</code>.</li>
-                        </ul>
-                    </p>
-                    <p>Некоторые виды DOM-элементов, например таблицы, предоставляют дополнительные ссылки и
-                        коллекции для доступа к своему содержимому.</p>
-                </dd>
-                <dt class="term-item">Поиск elem.matches(css), elem.closest(css), elemA.contains(elemB)</dt>
-                <dd class="description-item hide">
-                    <p>
-                        <ul>
-                            <li>Есть метод <code>elem.matches(css)</code>, который проверяет, удовлетворяет ли элемент
-                                CSS-селектору.</li>
-                            <li>Метод <code>elem.closest(css)</code> ищет ближайшего по иерархии предка,
-                                соответствующему данному CSS-селектору. Сам элемент также включён в поиск.</li>
-                            <li><code>elemA.contains(elemB)</code> вернёт <code>true</code>, если <code>elemB</code>
-                                находится внутри <code>elemA</code> (<code>elemB</code> потомок <code>elemA</code>) или
-                                когда <code>elemA==elemB</code>.</li>
-                        </ul>
-                    </p>
-                </dd>
-                <dt class="term-item">Свойства узлов: тип, тег и содержимое</dt>
-                <dd class="description-item hide">
-                    <p><code>innerHTML</code></p>
-                    <p>Внутреннее HTML-содержимое узла-элемента. Можно изменять.</p>
-                    <p><code>outerHTML</code></p>
-                    <p>Полный HTML узла-элемента. Запись в elem.outerHTML не меняет elem. Вместо этого она заменяет его
-                        во
-                        внешнем контексте.</p>
-                    <p><code>textContent</code></p>
-                    <p>Текст внутри элемента: HTML за вычетом всех тегов. Запись в него помещает текст в элемент, при
-                        этом все специальные символы и теги интерпретируются как текст. Можно использовать для защиты от
-                        вставки произвольного HTML кода.</p>
-                    <p><code>hidden</code></p>
-                    <p>Когда значение установлено в <code>true</code>, делает то же самое, что и CSS
-                        <code>display:none</code>.
-                        В зависимости от своего класса DOM-узлы имеют и другие свойства. Например у элементов
-                        <code>input</code>
-                        (<code>HTMLInputElement</code>) есть свойства <code>value</code>, <code>type</code>, у элементов
-                        <code>a</code> (<code>HTMLAnchorElement</code>) есть <code>href</code> и
-                        т.д. Большинство стандартных HTML-атрибутов имеют соответствующие свойства DOM.</p>
-                </dd>
-                <dt class="term-item">Атрибуты и свойства</dt>
-                <dd class="description-item hide">
-                    <p>Методы для работы с атрибутами:
-                        <ul>
-                            <li><code>elem.hasAttribute(name)</code> – проверить на наличие.</li>
-                            <li><code>elem.getAttribute(name)</code> – получить значение.</li>
-                            <li><code>elem.setAttribute(name, value)</code> – установить значение.</li>
-                            <li><code>elem.removeAttribute(name)</code> – удалить атрибут.</li>
-                            <li><code>elem.attributes</code> – это коллекция всех атрибутов.</li>
-                        </ul>
-                    </p>
-                    <p>В большинстве ситуаций предпочтительнее использовать DOM-свойства. Нужно использовать атрибуты
-                        только тогда, когда DOM-свойства не подходят, когда нужны именно атрибуты, например:
-                        <ul>
-                            <li>Нужен нестандартный атрибут. Но если он начинается с <code>data-</code>, тогда нужно
-                                использовать
-                                <code>dataset</code>.</li>
-                            <li>Мы хотим получить именно то значение, которое написано в HTML. Значение DOM-свойства
-                                может быть
-                                другим, например, свойство <code>href</code> – всегда полный URL, а нам может
-                                понадобиться получить
-                                «оригинальное» значение.</li>
-                        </ul>
-                    </p>
-                </dd>
-                <dt class="term-item">Изменение документа</dt>
-                <dd class="description-item hide">
-                    <p>Методы для создания узлов:
-                        <ul>
-                            <li><code>document.createElement(tag)</code> – создаёт элемент с заданным тегом,</li>
-                            <li><code>document.createTextNode(value)</code> – создаёт текстовый узел (редко
-                                используется),</li>
-                            <li><code>elem.cloneNode(deep)</code> – клонирует элемент, если <code>deep==true</code>, то
-                                со всеми дочерними элементами.</li>
-                        </ul>
-                    </p>
-                    <p>Вставка и удаление:
-                        <ul>
-                            <li><code>node.append(...nodes or strings)</code> – вставляет в <code>node</code> в конец,
-                            </li>
-                            <li><code>node.prepend(...nodes or strings)</code> – вставляет в <code>node</code> в начало,
-                            </li>
-                            <li><code>node.before(...nodes or strings)</code> – вставляет прямо перед <code>node</code>,
-                            </li>
-                            <li><code>node.after(...nodes or strings)</code> – вставляет сразу после <code>node</code>,
-                            </li>
-                            <li><code>node.replaceWith(...nodes or strings)</code> – заменяет <code>node</code>.</li>
-                            <li><code>node.remove()</code> – удаляет <code>node</code>.</li>
-                        </ul>
-                    </p>
+    <section class="terms dom-terms hide" data-name="dom">
+      <dl>
+        <dt class="term-item">Навигация по DOM</dt>
+        <dd class="description-item description-item-1">
+          Есть два основных набора ссылок:
+          <p>
+            <ul>
+              <li>Для всех узлов: <code>parentNode</code>, <code>childNodes</code>,
+                <code>firstChild</code>, <code>lastChild</code>, <code>previousSibling</code>,
+                <code>nextSibling</code>.
+              </li>
+              <li>Только для узлов-элементов: <code>parentElement</code>, <code>children</code>,
+                <code>firstElementChild</code>,
+                <code>lastElementChild</code>,
+                <code>previousElementSibling</code>, <code>nextElementSibling</code>.</li>
+            </ul>
+          </p>
+          <p>Некоторые виды DOM-элементов, например таблицы, предоставляют дополнительные ссылки и
+            коллекции для доступа к своему содержимому.</p>
+        </dd>
+        <dt class="term-item">Поиск elem.matches(css), elem.closest(css), elemA.contains(elemB)</dt>
+        <dd class="description-item hide">
+          <p>
+            <ul>
+              <li>Есть метод <code>elem.matches(css)</code>, который проверяет, удовлетворяет ли элемент
+                CSS-селектору.</li>
+              <li>Метод <code>elem.closest(css)</code> ищет ближайшего по иерархии предка,
+                соответствующему данному CSS-селектору. Сам элемент также включён в поиск.</li>
+              <li><code>elemA.contains(elemB)</code> вернёт <code>true</code>, если <code>elemB</code>
+                находится внутри <code>elemA</code> (<code>elemB</code> потомок <code>elemA</code>) или
+                когда <code>elemA==elemB</code>.</li>
+            </ul>
+          </p>
+        </dd>
+        <dt class="term-item">Свойства узлов</dt>
+        <dd class="description-item hide">
+          <p><code>innerHTML</code></p>
+          <p>Внутреннее HTML-содержимое узла-элемента. Можно изменять.</p>
+          <p><code>outerHTML</code></p>
+          <p>Полный HTML узла-элемента. Запись в elem.outerHTML не меняет elem. Вместо этого она заменяет его
+            во
+            внешнем контексте.</p>
+          <p><code>textContent</code></p>
+          <p>Текст внутри элемента: HTML за вычетом всех тегов. Запись в него помещает текст в элемент, при
+            этом все специальные символы и теги интерпретируются как текст. Можно использовать для защиты от
+            вставки произвольного HTML кода.</p>
+          <p><code>hidden</code></p>
+          <p>Когда значение установлено в <code>true</code>, делает то же самое, что и CSS
+            <code>display:none</code>.
+            В зависимости от своего класса DOM-узлы имеют и другие свойства. Например у элементов
+            <code>input</code>
+            (<code>HTMLInputElement</code>) есть свойства <code>value</code>, <code>type</code>, у элементов
+            <code>a</code> (<code>HTMLAnchorElement</code>) есть <code>href</code> и
+            т.д. Большинство стандартных HTML-атрибутов имеют соответствующие свойства DOM.</p>
+        </dd>
+        <dt class="term-item">Атрибуты и свойства</dt>
+        <dd class="description-item hide">
+          <p>Методы для работы с атрибутами:
+            <ul>
+              <li><code>elem.hasAttribute(name)</code> – проверить на наличие.</li>
+              <li><code>elem.getAttribute(name)</code> – получить значение.</li>
+              <li><code>elem.setAttribute(name, value)</code> – установить значение.</li>
+              <li><code>elem.removeAttribute(name)</code> – удалить атрибут.</li>
+              <li><code>elem.attributes</code> – это коллекция всех атрибутов.</li>
+            </ul>
+          </p>
+          <p>В большинстве ситуаций предпочтительнее использовать DOM-свойства. Нужно использовать атрибуты
+            только тогда, когда DOM-свойства не подходят, когда нужны именно атрибуты, например:
+            <ul>
+              <li>Нужен нестандартный атрибут. Но если он начинается с <code>data-</code>, тогда нужно
+                использовать
+                <code>dataset</code>.</li>
+              <li>Мы хотим получить именно то значение, которое написано в HTML. Значение DOM-свойства
+                может быть
+                другим, например, свойство <code>href</code> – всегда полный URL, а нам может
+                понадобиться получить
+                «оригинальное» значение.</li>
+            </ul>
+          </p>
+        </dd>
+        <dt class="term-item">Изменение документа</dt>
+        <dd class="description-item hide">
+          <p>Методы для создания узлов:
+            <ul>
+              <li><code>document.createElement(tag)</code> – создаёт элемент с заданным тегом,</li>
+              <li><code>document.createTextNode(value)</code> – создаёт текстовый узел (редко
+                используется),</li>
+              <li><code>elem.cloneNode(deep)</code> – клонирует элемент, если <code>deep==true</code>, то
+                со всеми дочерними элементами.</li>
+            </ul>
+          </p>
+          <p>Вставка и удаление:
+            <ul>
+              <li><code>node.append(...nodes or strings)</code> – вставляет в <code>node</code> в конец,
+              </li>
+              <li><code>node.prepend(...nodes or strings)</code> – вставляет в <code>node</code> в начало,
+              </li>
+              <li><code>node.before(...nodes or strings)</code> – вставляет прямо перед <code>node</code>,
+              </li>
+              <li><code>node.after(...nodes or strings)</code> – вставляет сразу после <code>node</code>,
+              </li>
+              <li><code>node.replaceWith(...nodes or strings)</code> – заменяет <code>node</code>.</li>
+              <li><code>node.remove()</code> – удаляет <code>node</code>.</li>
+            </ul>
+          </p>
 
-                    <p>Если нужно вставить фрагмент HTML, то <code>elem.insertAdjacentHTML(where, html)</code> вставляет
-                        в
-                        зависимости
-                        от <code>where</code>:
-                        <ul>
-                            <li><code>"beforebegin"</code> – вставляет <code>html</code> прямо перед <code>elem</code>,
-                            </li>
-                            <li><code>"afterbegin"</code> – вставляет <code>html</code> в <code>elem</code> в начало,
-                            </li>
-                            <li><code>"beforeend"</code> – вставляет <code>html</code> в <code>elem</code> в конец,</li>
-                            <li><code>"afterend"</code> – вставляет <code>html</code> сразу после <code>elem</code>.
-                            </li>
-                        </ul>
-                    </p>
-                </dd>
-                <dt class="term-item">Стили и классы</dt>
-                <dd class="description-item hide">
-                    <p>
-                        <code>classList</code> – объект с методами <code>add/remove/toggle/contains</code>, удобно для
-                        управления отдельными
-                        классами.</p>
-                    <p>Для чтения окончательных стилей (с учётом всех классов, после применения CSS и вычисления
-                        окончательных значений) используется метод <code>getComputedStyle(elem, [pseudo])</code>
-                        возвращает объект, похожий по формату на <code>style</code>. Только
-                        для
-                        чтения.</p>
-                    <p> Результат вызова – объект со стилями, похожий на <code>elem.style</code>, но с учётом всех
-                        CSS-классов.</p>
-                </dd>
-                <dt class="term-item">Размеры и прокрутка элементов</dt>
-                <dd class="description-item hide">
-                    <img src="./assets/image/metric-all.svg" alt="" width="670" height="602">
-                    <p>
-                        У элементов есть следующие геометрические свойства (метрики):
-                        <ul>
+          <p>Если нужно вставить фрагмент HTML, то <code>elem.insertAdjacentHTML(where, html)</code> вставляет
+            в
+            зависимости
+            от <code>where</code>:
+            <ul>
+              <li><code>"beforebegin"</code> – вставляет <code>html</code> прямо перед <code>elem</code>,
+              </li>
+              <li><code>"afterbegin"</code> – вставляет <code>html</code> в <code>elem</code> в начало,
+              </li>
+              <li><code>"beforeend"</code> – вставляет <code>html</code> в <code>elem</code> в конец,</li>
+              <li><code>"afterend"</code> – вставляет <code>html</code> сразу после <code>elem</code>.
+              </li>
+            </ul>
+          </p>
+        </dd>
+        <dt class="term-item">Стили и классы</dt>
+        <dd class="description-item hide">
+          <p>
+            <code>classList</code> – объект с методами <code>add/remove/toggle/contains</code>, удобно для
+            управления отдельными
+            классами.</p>
+          <p>Для чтения окончательных стилей (с учётом всех классов, после применения CSS и вычисления
+            окончательных значений) используется метод <code>getComputedStyle(elem, [pseudo])</code>
+            возвращает объект, похожий по формату на <code>style</code>. Только
+            для
+            чтения.</p>
+          <p> Результат вызова – объект со стилями, похожий на <code>elem.style</code>, но с учётом всех
+            CSS-классов.</p>
+        </dd>
+        <dt class="term-item">Размеры и прокрутка элементов</dt>
+        <dd class="description-item hide">
+          <img src="./assets/image/metric-all.svg" alt="" width="670" height="602">
+          <p>
+            У элементов есть следующие геометрические свойства (метрики):
+            <ul>
 
-                            <li><code>offsetParent</code> – ближайший CSS-позиционированный родитель или ближайший
-                                <code>td</code>, <code>th</code>, <code>table</code>, <code>body</code>.</li>
-                            <li><code>offsetLeft/offsetTop</code> – позиция в пикселях верхнего левого угла относительно
-                                offsetParent.</li>
-                            <li><code>offsetWidth/offsetHeight</code> – «внешняя» ширина/высота элемента, включая рамки.
-                            </li>
-                            <li><code>clientLeft/clientTop</code> – расстояние от верхнего левого внешнего угла до
-                                внутренного. Для
-                                операционных систем с ориентацией слева-направо эти свойства равны ширинам левой/верхней
-                                рамки.
-                                Если язык ОС таков, что ориентация справа налево, так что вертикальная полоса прокрутки
-                                находится не справа, а слева, то <code>clientLeft</code> включает в своё значение её
-                                ширину.</li>
-                            <li><code>clientWidth/clientHeight</code> – ширина/высота содержимого вместе с внутренними
-                                отступами <code>padding</code>,
-                                но
-                                без полосы прокрутки.</li>
-                            <li><code>scrollWidth/scrollHeight</code> – ширины/высота содержимого, аналогично
-                                <code>clientWidth/Height</code>, но
-                                учитывают прокрученную, невидимую область элемента.</li>
-                            <li><code>scrollLeft/scrollTop</code> – ширина/высота прокрученной сверху части элемента,
-                                считается от
-                                верхнего
-                                левого угла.</li>
-                        </ul>
-                    </p>
-                    <p>Все свойства доступны только для чтения, кроме <code>scrollLeft/scrollTop</code>, изменение
-                        которых
-                        заставляет браузер прокручивать элемент.</p>
-                </dd>
-                <dt class="term-item">Размеры и прокрутка окна</dt>
-                <dd class="description-item hide">
-                    <p>Размеры:
-                        <ul>
-                            <li>Ширина/высота видимой части документа (ширина/высота области содержимого):
-                                <code>document.documentElement.clientWidth/Height</code></li>
+              <li><code>offsetParent</code> – ближайший CSS-позиционированный родитель или ближайший
+                <code>td</code>, <code>th</code>, <code>table</code>, <code>body</code>.</li>
+              <li><code>offsetLeft/offsetTop</code> – позиция в пикселях верхнего левого угла относительно
+                offsetParent.</li>
+              <li><code>offsetWidth/offsetHeight</code> – «внешняя» ширина/высота элемента, включая рамки.
+              </li>
+              <li><code>clientLeft/clientTop</code> – расстояние от верхнего левого внешнего угла до
+                внутренного. Для
+                операционных систем с ориентацией слева-направо эти свойства равны ширинам левой/верхней
+                рамки.
+                Если язык ОС таков, что ориентация справа налево, так что вертикальная полоса прокрутки
+                находится не справа, а слева, то <code>clientLeft</code> включает в своё значение её
+                ширину.</li>
+              <li><code>clientWidth/clientHeight</code> – ширина/высота содержимого вместе с внутренними
+                отступами <code>padding</code>,
+                но
+                без полосы прокрутки.</li>
+              <li><code>scrollWidth/scrollHeight</code> – ширины/высота содержимого, аналогично
+                <code>clientWidth/Height</code>, но
+                учитывают прокрученную, невидимую область элемента.</li>
+              <li><code>scrollLeft/scrollTop</code> – ширина/высота прокрученной сверху части элемента,
+                считается от
+                верхнего
+                левого угла.</li>
+            </ul>
+          </p>
+          <p>Все свойства доступны только для чтения, кроме <code>scrollLeft/scrollTop</code>, изменение
+            которых
+            заставляет браузер прокручивать элемент.</p>
+        </dd>
+        <dt class="term-item">Размеры и прокрутка окна</dt>
+        <dd class="description-item hide">
+          <p>Размеры:
+            <ul>
+              <li>Ширина/высота видимой части документа (ширина/высота области содержимого):
+                <code>document.documentElement.clientWidth/Height</code></li>
 
-                            <li>Ширина/высота всего документа со всей прокручиваемой областью страницы:
+              <li>Ширина/высота всего документа со всей прокручиваемой областью страницы:
 
-                                <p><code>let scrollHeight = Math.max(
-                                        document.body.scrollHeight, document.documentElement.scrollHeight,
-                                        document.body.offsetHeight, document.documentElement.offsetHeight,
-                                        document.body.clientHeight, document.documentElement.clientHeight
-                                        );</code></p>
-                            </li>
-                        </ul>
-                    </p>
-                    <p>Прокрутка:
-                        <ul>
-                            <li>Прокрутку окна можно получить так: <code>window.pageYOffset/pageXOffset</code>.</li>
+                <p><code>let scrollHeight = Math.max(
+                    document.body.scrollHeight, document.documentElement.scrollHeight,
+                    document.body.offsetHeight, document.documentElement.offsetHeight,
+                    document.body.clientHeight, document.documentElement.clientHeight
+                    );</code></p>
+              </li>
+            </ul>
+          </p>
+          <p>Прокрутка:
+            <ul>
+              <li>Прокрутку окна можно получить так: <code>window.pageYOffset/pageXOffset</code>.</li>
 
-                            <li>Изменить текущую прокрутку:
-                                <ul>
-                                    <li><code>window.scrollTo(pageX,pageY)</code> – абсолютные координаты,</li>
-                                    <li><code>window.scrollBy(x,y)</code> – прокрутка относительно текущего места,</li>
-                                    <li><code>elem.scrollIntoView(top)</code> – прокрутить страницу так, чтобы сделать
-                                        <code>elem</code> видимым (выровнять
-                                        относительно верхней/нижней части окна).</li>
-                            </li>
-                        </ul>
-                        </ul>
-                    </p>
-                </dd>
-                <dt class="term-item">Координаты</dt>
-                <dd class="description-item hide">
-                    <p>Любая точка на странице имеет координаты:
-                        <ul>
-                            <li>Относительно окна браузера – <code>elem.getBoundingClientRect()</code>.</li>
-                            <li>Относительно документа – <code>elem.getBoundingClientRect()</code> плюс текущая
-                                прокрутка страницы.</li>
-                        </ul>
-                    </p>
-                    <p>
-                        Вызов <code>document.elementFromPoint(x, y)</code> возвращает самый глубоко вложенный элемент в
-                        окне, находящийся по координатам <code>(x, y)</code>.
-                    </p>
-                    <p>
-                        Для координат за пределами окна метод <code>elementFromPoint</code> возвращает <code>null</code>
-                    </p>
-                    <p>
-                        Метод <code>document.elementFromPoint(x,y)</code> работает, только если координаты
-                        <code>(x,y)</code> относятся к видимой
-                        части содержимого окна.</p>
-                    <p>
-                        Если любая из координат представляет собой отрицательное число или превышает размеры окна, то
-                        возвращается <code>null</code>.
-                    </p>
-                </dd>
-                <dt class="term-item">Генерация пользовательских событий</dt>
-                <dd class="description-item hide">
-                    <p>Чтобы сгенерировать событие из кода, вначале надо создать объект события.</p>
+              <li>Изменить текущую прокрутку:
+                <ul>
+                  <li><code>window.scrollTo(pageX,pageY)</code> – абсолютные координаты,</li>
+                  <li><code>window.scrollBy(x,y)</code> – прокрутка относительно текущего места,</li>
+                  <li><code>elem.scrollIntoView(top)</code> – прокрутить страницу так, чтобы сделать
+                    <code>elem</code> видимым (выровнять
+                    относительно верхней/нижней части окна).</li>
+              </li>
+            </ul>
+            </ul>
+          </p>
+        </dd>
+        <dt class="term-item">Координаты</dt>
+        <dd class="description-item hide">
+          <p>Любая точка на странице имеет координаты:
+            <ul>
+              <li>Относительно окна браузера – <code>elem.getBoundingClientRect()</code>.</li>
+              <li>Относительно документа – <code>elem.getBoundingClientRect()</code> плюс текущая
+                прокрутка страницы.</li>
+            </ul>
+          </p>
+          <p>
+            Вызов <code>document.elementFromPoint(x, y)</code> возвращает самый глубоко вложенный элемент в
+            окне, находящийся по координатам <code>(x, y)</code>.
+          </p>
+          <p>
+            Для координат за пределами окна метод <code>elementFromPoint</code> возвращает <code>null</code>
+          </p>
+          <p>
+            Метод <code>document.elementFromPoint(x,y)</code> работает, только если координаты
+            <code>(x,y)</code> относятся к видимой
+            части содержимого окна.</p>
+          <p>
+            Если любая из координат представляет собой отрицательное число или превышает размеры окна, то
+            возвращается <code>null</code>.
+          </p>
+        </dd>
+        <dt class="term-item">Генерация user events</dt>
+        <dd class="description-item hide">
+          <p>Чтобы сгенерировать событие из кода, вначале надо создать объект события.</p>
 
-                    <p>Базовый конструктор <code>Event(name, options)</code> принимает обязательное имя события и
-                        <code>options</code> – объект с
-                        двумя свойствами:
-                        <ul>
-                            <li><code>bubbles: true</code> чтобы событие всплывало.</li>
-                            <li><code>cancelable: true</code> если мы хотим, чтобы <code>event.preventDefault()</code>
-                                работал.</li>
-                        </ul>
-                    </p>
-                    <p>Особые конструкторы встроенных событий <code>MouseEvent</code>, <code>KeyboardEvent</code> и
-                        другие принимают специфичные
-                        для
-                        каждого конкретного типа событий свойства. Например, <code>clientX</code> для событий мыши.</p>
+          <p>Базовый конструктор <code>Event(name, options)</code> принимает обязательное имя события и
+            <code>options</code> – объект с
+            двумя свойствами:
+            <ul>
+              <li><code>bubbles: true</code> чтобы событие всплывало.</li>
+              <li><code>cancelable: true</code> если мы хотим, чтобы <code>event.preventDefault()</code>
+                работал.</li>
+            </ul>
+          </p>
+          <p>Особые конструкторы встроенных событий <code>MouseEvent</code>, <code>KeyboardEvent</code> и
+            другие принимают специфичные
+            для
+            каждого конкретного типа событий свойства. Например, <code>clientX</code> для событий мыши.</p>
 
-                    <p>Для пользовательских событий стоит применять конструктор <code>CustomEvent</code>. У него есть
-                        дополнительная
-                        опция <code>detail</code>, с её помощью можно передавать информацию в объекте события.
-                        После чего все
-                        обработчики смогут получить к ней доступ через <code>event.detail</code>.</p>
+          <p>Для пользовательских событий стоит применять конструктор <code>CustomEvent</code>. У него есть
+            дополнительная
+            опция <code>detail</code>, с её помощью можно передавать информацию в объекте события.
+            После чего все
+            обработчики смогут получить к ней доступ через <code>event.detail</code>.</p>
 
-                    <p>Несмотря на техническую возможность генерировать встроенные браузерные события типа
-                        <code>click</code> или
-                        <code>keydown</code>, пользоваться ей стоит с большой осторожностью.</p>
+          <p>Несмотря на техническую возможность генерировать встроенные браузерные события типа
+            <code>click</code> или
+            <code>keydown</code>, пользоваться ей стоит с большой осторожностью.</p>
 
-                    <p>Как правило, генерация встроенных событий полезна в следующих случаях:
-                        <ul>
-                            <li>Либо как явный и грубый хак, чтобы заставить работать сторонние библиотеки, в которых не
-                                предусмотрены другие средства взаимодействия.</li>
-                            <li>Либо для автоматического тестирования, чтобы скриптом «нажать на кнопку» и посмотреть,
-                                произошло ли
-                                нужное действие.</li>
-                        </ul>
-                    </p>
-                    <p>Пользовательские события создают для улучшения архитектуры, чтобы
-                        сообщить о
-                        том, что происходит внутри наших слайдеров, каруселей и т.д.</p>
-                </dd>
-                <dt class="term-item">События мыши</dt>
-                <dd class="description-item hide">
-                    <p>События мыши имеют следующие свойства:
-                        <ul>
-                            <li>Кнопка: <code>which</code>.</li>
-                            <li>Клавиши-модификаторы (<code>true</code> если нажаты): <code>altKey</code>,
-                                <code>ctrlKey</code>, <code>shiftKey</code> и <code>metaKey</code> (Mac).
-                                Если вы планируете обработать <code>Ctrl</code>, то не забудьте, что пользователи
-                                <code>Mac</code> обычно используют <code>Cmd</code>,
-                                поэтому лучше проверить <code>if (e.metaKey || e.ctrlKey)</code>.</li>
-                            <li>Координаты относительно окна: <code>clientX/clientY</code>.</li>
-                            <li>Координаты относительно документа: <code>pageX/pageY</code>.</li>
-                        </ul>
-                    </p>
-                    <p>Действие по умолчанию события <code>mousedown</code> – начало выделения, если в интерфейсе оно
-                        скорее мешает, его
-                        можно отменить.</p>
-                </dd>
-                <dt class="term-item">Движения мыши</dt>
-                <dd class="description-item hide">
-                    <p>Для события <code>mouseover</code>:
-                        <ul>
-                            <li><code>event.target</code> – это элемент, на который курсор перешёл.</li>
-                            <li><code>event.relatedTarget</code> – это элемент, с которого курсор ушёл
-                                (<code>relatedTarget → target</code>).</li>
-                        </ul>
-                        Событие <code>mouseover</code>, происходящее на потомке, всплывает. Поэтому если на родительском
-                        элементе
-                        есть
-                        такой обработчик, то оно его вызовет.
-                    </p>
-                    <p>
-                        Для события <code>mouseout</code> наоборот:
-                        <ul>
-                            <li><code>event.target</code> – это элемент, с которого курсор ушёл.</li>
-                            <li><code>event.relatedTarget</code> – это элемент, на который курсор перешёл (<code>target
-                                    → relatedTarget</code>).</li>
-                        </ul>
-                        Важная особенность события <code>mouseout</code> – оно генерируется в том числе, когда указатель
-                        переходит с
-                        элемента на его потомка.</p>
-                    <p>Свойство <code>relatedTarget</code> может быть <code>null</code>.
-                        Это нормально и означает, что указатель мыши перешёл не с другого элемента, а из-за пределов
-                        окна
-                        браузера. Или же, наоборот, ушёл за пределы окна.</p>
-                    <p>События <code>mouseenter/mouseleave</code> похожи на <code>mouseover/mouseout</code>. Они тоже
-                        генерируются, когда курсор мыши
-                        переходит на элемент или покидает его.
-                        Но есть и пара важных отличий:
-                        <ul>
-                            <li>Переходы внутри элемента, на его потомки и с них, не считаются.</li>
-                            <li>События <code>mouseenter/mouseleave</code> не всплывают.</li>
-                        </ul>
-                    </p>
-                </dd>
-                <dt class="term-item">Drag’n’Drop</dt>
-                <dd class="description-item hide">
-                    <p>Ключевые идеи:
-                        <ul>
-                            <li>Поток событий: <code>ball.mousedown → document.mousemove → ball.mouseup</code> (не
-                                забыть отменить
-                                браузерный
-                                <code>ondragstart</code>). // elem.ondragstart = function() {return false;};</li>
-                            <li>В начале перетаскивания: запоминаем начальное смещение указателя относительно элемента:
-                                <code>shiftX/shiftY</code> – и сохраняем его при перетаскивании.</li>
-                            <li>Выявляем потенциальные цели переноса под указателем с помощью
-                                <code>document.elementFromPoint</code>.
-                            </li>
-                        </ul>
-                    </p>
-                    <p>
-                        На этой основе можно сделать многое.
-                        <ul>
-                            <li>На <code>mouseup</code> – по-разному завершать перенос: изменять данные, перемещать
-                                элементы.</li>
-                            <li>Можно подсвечивать элементы, пока мышь «пролетает» над ними.</li>
-                            <li>Можно ограничить перетаскивание определённой областью или направлением.</li>
-                            <li>Можно использовать делегирование событий для <code>mousedown/up</code>. Один обработчик
-                                событий на
-                                большой
-                                зоне,
-                                который проверяет <code>event.target</code>, может управлять Drag’n’Drop для сотен
-                                элементов.</li>
-                        </ul>
-                    </p>
-                </dd>
-                <dt class="term-item">События указателя</dt>
-                <dd class="description-item hide">
-                    <p><code>mouse'событий'</code> на <code>pointer'события'</code> в коде</p>
-                    <p>События указателя содержат те же свойства, что и события мыши, например <code>clientX/Y</code>,
-                        <code>target</code> и т.п.,
-                        и
-                        несколько дополнительных:
-                        <ul>
-                            <li><code>pointerId</code> – уникальный идентификатор указателя, вызвавшего событие.
-                                Идентификатор генерируется браузером. Это свойство позволяет обрабатывать несколько
-                                указателей,
-                                например сенсорный экран со стилусом и мульти-тач (увидим примеры ниже).</li>
-                            <li><code>pointerType</code> – тип указывающего устройства. Должен быть строкой с одним из
-                                значений:
-                                <code>«mouse»</code>,
-                                <code>«pen»</code>
-                                или <code>«touch»</code>.
-                                Мы можем использовать это свойство, чтобы определять разное поведение для разных типов
-                                указателей.</li>
-                            <li><code>isPrimary</code> – равно <code>true</code> для основного указателя (первый палец в
-                                мульти-тач).</li>
-                        </ul>
-                    </p>
-                    <p>Событие <code>pointercancel</code> происходит, когда текущее действие с указателем по какой-то
-                        причине
-                        прерывается, и события указателя больше не генерируются.
-                        При Drag’n’Drop : Предотвращайте действие браузера по умолчанию, чтобы избежать
-                        <code>pointercancel</code>.
-                        Для устройств с сенсорным экраном существуют другие действия браузера, связанные с касаниями,
-                        кроме
-                        <code>drag’n’drop</code>. Чтобы с ними не возникало проблем: <code>#ball { touch-action: none
-                            }</code>.
-                    </p>
-                    <p><code>elem.setPointerCapture(pointerId)</code> – привязывает события с данным
-                        <code>pointerId</code> к <code>elem</code>. После такого
-                        вызова все события указателя с таким <code>pointerId</code> будут иметь <code>elem</code> в
-                        качестве целевого элемента
-                        (как
-                        будто произошли над <code>elem</code>), вне зависимости от того, где в документе они произошли.
-                        Другими словами, <code>elem.setPointerCapture(pointerId)</code> меняет <code>target</code> всех
-                        дальнейших событий с
-                        данным
-                        <code>pointerId</code> на <code>elem</code>.
-                        Это отменяется:
-                        <ul>
-                            <li>автоматически, при возникновении события <code>pointerup</code> или
-                                <code>pointercancel</code>,</li>
-                            <li>автоматически, если <code>elem</code> удаляется из документа,</li>
-                            <li>при вызове <code>elem.releasePointerCapture(pointerId)</code>.</li>
-                        </ul>
-                    </p>
-                    <p>Существует два связанных с захватом события:
-                        <ul>
-                            <li><code>gotpointercapture</code> срабатывает, когда элемент использует
-                                <code>setPointerCapture</code> для включения
-                                захвата.</li>
-                            <li><code>lostpointercapture</code> срабатывает при освобождении от захвата: явно с помощью
-                                <code>releasePointerCapture</code>
-                                или
-                                автоматически, когда происходит событие <code>pointerup/pointercancel</code>.</li>
-                        </ul>
-                    </p>
-                </dd>
-                <dt class="term-item">Свойства и методы формы</dt>
-                <dd class="description-item hide">
-                    <p>Свойства для навигации по формам:
-                        <ul>
-                            <li><code>document.forms</code><br />
-                                Форма доступна через <code>document.forms[name/index]</code>.</li>
-                            <li><code>form.elements</code><br />
-                                Элементы формы доступны через <code>form.elements[name/index]</code>, или можно просто
-                                использовать
-                                <code>form[name/index]</code>. Свойство <code>elements</code> также работает для
-                                <code>'fieldset'</code>.</li>
-                            <li><code>element.form</code><br />
-                                Элементы хранят ссылку на свою форму в свойстве <code>form</code>.</li>
-                        </ul>
-                    </p>
-                    <p>Значения элементов формы доступны через <code>input.value</code>, <code>textarea.value</code>,
-                        <code>select.value</code> и т.д. либо
-                        <code>input.checked</code> для чекбоксов и переключателей.
-                    </p>
-                    <p>
-                        Для элемента <code>'select'</code> мы также можем получить индекс выбранного пункта через
-                        <code>select.selectedIndex</code>, либо используя коллекцию пунктов <code>select.options</code>.
-                    </p>
-                </dd>
-                <dt class="term-item">Фокусировка: focus/blur</dt>
-                <dd class="description-item hide">
-                    <p>События <code>focus</code> и <code>blur</code> срабатывают на фокусировке/потере фокуса элемента.
-                    </p>
-                    <p>Их особенности:
-                        <ul>
-                            <li>Они не всплывают. Но можно использовать фазу перехвата или
-                                <code>focusin/focusout</code>.</li>
-                            <li>Большинство элементов не поддерживают фокусировку по умолчанию. Используйте
-                                <code>tabindex</code>,
-                                чтобы сделать
-                                фокусируемым любой элемент.</li>
-                        </ul>
-                    </p>
-                    <p>
-                        Текущий элемент с фокусом можно получить из <code>document.activeElement</code>.</p>
-                </dd>
-                <dt class="term-item">События: change, input, cut, copy, paste</dt>
-                <dd class="description-item hide">
-                    <p>События изменения данных:</p>
-                    <p><code>change</code><br> Значение было изменено. Для текстовых полей срабатывает при потере
-                        фокуса.</p>
-                    <p><code>input</code><br> Срабатывает при каждом изменении значения. Запускается немедленно, в
-                        отличие от <code>change</code>.
-                    </p>
-                    <p><code>cut/copy/paste</code><br> Действия по вырезанию/копированию/вставке. Действие можно
-                        предотвратить.
-                        Свойство
-                        <code>event.clipboardData</code> предоставляет доступ на чтение/запись в буфер обмена…</p>
-                </dd>
-                <dt class="term-item">Отправка формы: событие и метод submit</dt>
-                <dd class="description-item hide">
-                    <p>При отправки формы сгенерируется событие <code>submit</code> на форме. Обработчик может проверить
-                        данные, и если есть
-                        ошибки, показать их и вызвать <code>event.preventDefault()</code>, тогда форма не будет
-                        отправлена на сервер.</p>
+          <p>Как правило, генерация встроенных событий полезна в следующих случаях:
+            <ul>
+              <li>Либо как явный и грубый хак, чтобы заставить работать сторонние библиотеки, в которых не
+                предусмотрены другие средства взаимодействия.</li>
+              <li>Либо для автоматического тестирования, чтобы скриптом «нажать на кнопку» и посмотреть,
+                произошло ли
+                нужное действие.</li>
+            </ul>
+          </p>
+          <p>Пользовательские события создают для улучшения архитектуры, чтобы
+            сообщить о
+            том, что происходит внутри наших слайдеров, каруселей и т.д.</p>
+        </dd>
+        <dt class="term-item">События мыши</dt>
+        <dd class="description-item hide">
+          <p>События мыши имеют следующие свойства:
+            <ul>
+              <li>Кнопка: <code>which</code>.</li>
+              <li>Клавиши-модификаторы (<code>true</code> если нажаты): <code>altKey</code>,
+                <code>ctrlKey</code>, <code>shiftKey</code> и <code>metaKey</code> (Mac).
+                Если вы планируете обработать <code>Ctrl</code>, то не забудьте, что пользователи
+                <code>Mac</code> обычно используют <code>Cmd</code>,
+                поэтому лучше проверить <code>if (e.metaKey || e.ctrlKey)</code>.</li>
+              <li>Координаты относительно окна: <code>clientX/clientY</code>.</li>
+              <li>Координаты относительно документа: <code>pageX/pageY</code>.</li>
+            </ul>
+          </p>
+          <p>Действие по умолчанию события <code>mousedown</code> – начало выделения, если в интерфейсе оно
+            скорее мешает, его
+            можно отменить.</p>
+        </dd>
+        <dt class="term-item">Движения мыши</dt>
+        <dd class="description-item hide">
+          <p>Для события <code>mouseover</code>:
+            <ul>
+              <li><code>event.target</code> – это элемент, на который курсор перешёл.</li>
+              <li><code>event.relatedTarget</code> – это элемент, с которого курсор ушёл
+                (<code>relatedTarget → target</code>).</li>
+            </ul>
+            Событие <code>mouseover</code>, происходящее на потомке, всплывает. Поэтому если на родительском
+            элементе
+            есть
+            такой обработчик, то оно его вызовет.
+          </p>
+          <p>
+            Для события <code>mouseout</code> наоборот:
+            <ul>
+              <li><code>event.target</code> – это элемент, с которого курсор ушёл.</li>
+              <li><code>event.relatedTarget</code> – это элемент, на который курсор перешёл (<code>target
+                  → relatedTarget</code>).</li>
+            </ul>
+            Важная особенность события <code>mouseout</code> – оно генерируется в том числе, когда указатель
+            переходит с
+            элемента на его потомка.</p>
+          <p>Свойство <code>relatedTarget</code> может быть <code>null</code>.
+            Это нормально и означает, что указатель мыши перешёл не с другого элемента, а из-за пределов
+            окна
+            браузера. Или же, наоборот, ушёл за пределы окна.</p>
+          <p>События <code>mouseenter/mouseleave</code> похожи на <code>mouseover/mouseout</code>. Они тоже
+            генерируются, когда курсор мыши
+            переходит на элемент или покидает его.
+            Но есть и пара важных отличий:
+            <ul>
+              <li>Переходы внутри элемента, на его потомки и с них, не считаются.</li>
+              <li>События <code>mouseenter/mouseleave</code> не всплывают.</li>
+            </ul>
+          </p>
+        </dd>
+        <dt class="term-item">Drag’n’Drop</dt>
+        <dd class="description-item hide">
+          <p>Ключевые идеи:
+            <ul>
+              <li>Поток событий: <code>ball.mousedown → document.mousemove → ball.mouseup</code> (не
+                забыть отменить
+                браузерный
+                <code>ondragstart</code>). // elem.ondragstart = function() {return false;};</li>
+              <li>В начале перетаскивания: запоминаем начальное смещение указателя относительно элемента:
+                <code>shiftX/shiftY</code> – и сохраняем его при перетаскивании.</li>
+              <li>Выявляем потенциальные цели переноса под указателем с помощью
+                <code>document.elementFromPoint</code>.
+              </li>
+            </ul>
+          </p>
+          <p>
+            На этой основе можно сделать многое.
+            <ul>
+              <li>На <code>mouseup</code> – по-разному завершать перенос: изменять данные, перемещать
+                элементы.</li>
+              <li>Можно подсвечивать элементы, пока мышь «пролетает» над ними.</li>
+              <li>Можно ограничить перетаскивание определённой областью или направлением.</li>
+              <li>Можно использовать делегирование событий для <code>mousedown/up</code>. Один обработчик
+                событий на
+                большой
+                зоне,
+                который проверяет <code>event.target</code>, может управлять Drag’n’Drop для сотен
+                элементов.</li>
+            </ul>
+          </p>
+        </dd>
+        <dt class="term-item">События указателя</dt>
+        <dd class="description-item hide">
+          <p><code>mouse'событий'</code> на <code>pointer'события'</code> в коде</p>
+          <p>События указателя содержат те же свойства, что и события мыши, например <code>clientX/Y</code>,
+            <code>target</code> и т.п.,
+            и
+            несколько дополнительных:
+            <ul>
+              <li><code>pointerId</code> – уникальный идентификатор указателя, вызвавшего событие.
+                Идентификатор генерируется браузером. Это свойство позволяет обрабатывать несколько
+                указателей,
+                например сенсорный экран со стилусом и мульти-тач (увидим примеры ниже).</li>
+              <li><code>pointerType</code> – тип указывающего устройства. Должен быть строкой с одним из
+                значений:
+                <code>«mouse»</code>,
+                <code>«pen»</code>
+                или <code>«touch»</code>.
+                Мы можем использовать это свойство, чтобы определять разное поведение для разных типов
+                указателей.</li>
+              <li><code>isPrimary</code> – равно <code>true</code> для основного указателя (первый палец в
+                мульти-тач).</li>
+            </ul>
+          </p>
+          <p>Событие <code>pointercancel</code> происходит, когда текущее действие с указателем по какой-то
+            причине
+            прерывается, и события указателя больше не генерируются.
+            При Drag’n’Drop : Предотвращайте действие браузера по умолчанию, чтобы избежать
+            <code>pointercancel</code>.
+            Для устройств с сенсорным экраном существуют другие действия браузера, связанные с касаниями,
+            кроме
+            <code>drag’n’drop</code>. Чтобы с ними не возникало проблем: <code>#ball { touch-action: none
+              }</code>.
+          </p>
+          <p><code>elem.setPointerCapture(pointerId)</code> – привязывает события с данным
+            <code>pointerId</code> к <code>elem</code>. После такого
+            вызова все события указателя с таким <code>pointerId</code> будут иметь <code>elem</code> в
+            качестве целевого элемента
+            (как
+            будто произошли над <code>elem</code>), вне зависимости от того, где в документе они произошли.
+            Другими словами, <code>elem.setPointerCapture(pointerId)</code> меняет <code>target</code> всех
+            дальнейших событий с
+            данным
+            <code>pointerId</code> на <code>elem</code>.
+            Это отменяется:
+            <ul>
+              <li>автоматически, при возникновении события <code>pointerup</code> или
+                <code>pointercancel</code>,</li>
+              <li>автоматически, если <code>elem</code> удаляется из документа,</li>
+              <li>при вызове <code>elem.releasePointerCapture(pointerId)</code>.</li>
+            </ul>
+          </p>
+          <p>Существует два связанных с захватом события:
+            <ul>
+              <li><code>gotpointercapture</code> срабатывает, когда элемент использует
+                <code>setPointerCapture</code> для включения
+                захвата.</li>
+              <li><code>lostpointercapture</code> срабатывает при освобождении от захвата: явно с помощью
+                <code>releasePointerCapture</code>
+                или
+                автоматически, когда происходит событие <code>pointerup/pointercancel</code>.</li>
+            </ul>
+          </p>
+        </dd>
+        <dt class="term-item">Свойства и методы формы</dt>
+        <dd class="description-item hide">
+          <p>Свойства для навигации по формам:
+            <ul>
+              <li><code>document.forms</code><br />
+                Форма доступна через <code>document.forms[name/index]</code>.</li>
+              <li><code>form.elements</code><br />
+                Элементы формы доступны через <code>form.elements[name/index]</code>, или можно просто
+                использовать
+                <code>form[name/index]</code>. Свойство <code>elements</code> также работает для
+                <code>'fieldset'</code>.</li>
+              <li><code>element.form</code><br />
+                Элементы хранят ссылку на свою форму в свойстве <code>form</code>.</li>
+            </ul>
+          </p>
+          <p>Значения элементов формы доступны через <code>input.value</code>, <code>textarea.value</code>,
+            <code>select.value</code> и т.д. либо
+            <code>input.checked</code> для чекбоксов и переключателей.
+          </p>
+          <p>
+            Для элемента <code>'select'</code> мы также можем получить индекс выбранного пункта через
+            <code>select.selectedIndex</code>, либо используя коллекцию пунктов <code>select.options</code>.
+          </p>
+        </dd>
+        <dt class="term-item">Фокусировка: focus/blur</dt>
+        <dd class="description-item hide">
+          <p>События <code>focus</code> и <code>blur</code> срабатывают на фокусировке/потере фокуса элемента.
+          </p>
+          <p>Их особенности:
+            <ul>
+              <li>Они не всплывают. Но можно использовать фазу перехвата или
+                <code>focusin/focusout</code>.</li>
+              <li>Большинство элементов не поддерживают фокусировку по умолчанию. Используйте
+                <code>tabindex</code>,
+                чтобы сделать
+                фокусируемым любой элемент.</li>
+            </ul>
+          </p>
+          <p>
+            Текущий элемент с фокусом можно получить из <code>document.activeElement</code>.</p>
+        </dd>
+        <dt class="term-item">События: change, input, cut, copy, paste</dt>
+        <dd class="description-item hide">
+          <p>События изменения данных:</p>
+          <p><code>change</code><br> Значение было изменено. Для текстовых полей срабатывает при потере
+            фокуса.</p>
+          <p><code>input</code><br> Срабатывает при каждом изменении значения. Запускается немедленно, в
+            отличие от <code>change</code>.
+          </p>
+          <p><code>cut/copy/paste</code><br> Действия по вырезанию/копированию/вставке. Действие можно
+            предотвратить.
+            Свойство
+            <code>event.clipboardData</code> предоставляет доступ на чтение/запись в буфер обмена…</p>
+        </dd>
+        <dt class="term-item">Отправка формы: событие и метод submit</dt>
+        <dd class="description-item hide">
+          <p>При отправки формы сгенерируется событие <code>submit</code> на форме. Обработчик может проверить
+            данные, и если есть
+            ошибки, показать их и вызвать <code>event.preventDefault()</code>, тогда форма не будет
+            отправлена на сервер.</p>
 
-                    <p>Чтобы отправить форму на сервер вручную, мы можем вызвать метод <code>form.submit()</code>.</p>
+          <p>Чтобы отправить форму на сервер вручную, мы можем вызвать метод <code>form.submit()</code>.</p>
 
-                    <p>При этом событие <code>submit</code> не генерируется. Предполагается, что если программист
-                        вызывает метод
-                        <code>form.submit()</code>, то он уже выполнил всю соответствующую обработку.</p>
-                </dd>
-                <dt class="term-item">Страница: DOMContentLoaded, load, beforeunload, unload</dt>
-                <dd class="description-item hide">
-                    <p>События загрузки страницы:
-                        <ul>
-                            <li><code>DOMContentLoaded</code> генерируется на <code>document</code>, когда
-                                <code>DOM</code> готов. Мы можем применить
-                                JavaScript к
-                                элементам на данном этапе.
-                                <ul>
-                                    <li>Скрипты, вроде <code>'script' ... '/script'</code> или <code>'script
-                                            src="..."''/script'</code> блокируют
-                                        <code>DOMContentLoaded</code>,
-                                        браузер ждёт, пока они
-                                        выполнятся.</li>
-                                    <li>Изображения и другие ресурсы тоже всё ещё могут продолжать загружаться.</li>
-                                </ul>
-                            </li>
-                            <li>Событие <code>load</code> на <code>window</code> генерируется, когда страница и все
-                                ресурсы загружены. Мы редко
-                                его
-                                используем, потому что обычно нет нужды ждать так долго.</li>
-                            <li>Событие <code>beforeunload</code> на <code>window</code> генерируется, когда
-                                пользователь покидает страницу. Если
-                                мы
-                                отменим
-                                событие, браузер спросит, на самом ли деле пользователь хочет уйти (например, у нас есть
-                                несохранённые изменения).</li>
-                            <li>Событие <code>unload</code> на <code>window</code> генерируется, когда пользователь
-                                окончательно уходит, в
-                                обработчике
-                                мы
-                                можем делать только простые вещи, которые ни о чём не спрашивают пользователя и не
-                                заставляют его
-                                ждать. Из-за этих ограничений оно редко используется. Мы можем послать сетевой запрос с
-                                помощью
-                                <code>navigator.sendBeacon</code>.</li>
-                            <li><code>document.readyState</code> – текущее состояние документа, изменения можно
-                                отследить с помощью
-                                события
-                                <code>readystatechange</code>:
-                                <ul>
-                                    <li><code>loading</code> – документ грузится.</li>
-                                    <li><code>interactive</code> – документ прочитан, происходит примерно в то же время,
-                                        что и
-                                        <code>DOMContentLoaded</code>, но до
-                                        него.</li>
-                                    <li><code>complete</code> – документ и ресурсы загружены, происходит примерно в то
-                                        же время, что
-                                        и
-                                        <code>window.onload</code>, но
-                                        до него.</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </p>
-                </dd>
-                <dt class="term-item">Скрипты: async, defer</dt>
-                <dd class="description-item hide">
-                    <p><code>async</code><br> Порядок загрузки (кто загрузится первым, тот и сработает). Не имеет
-                        значения. Может
-                        загрузиться и выполниться до того, как страница полностью загрузится. Такое случается, если
-                        скрипты
-                        маленькие или хранятся в кеше, а документ достаточно большой.</p>
-                    <p><code>defer</code><br> Порядок документа (как расположены в документе). Выполняется после того,
-                        как документ
-                        загружен
-                        и обработан (ждёт), непосредственно перед <code>DOMContentLoaded</code>.</p>
-                    <p>Страница без скриптов должна быть рабочей</p>
-                    <p>Когда вы используете <code>defer</code>, страница видна до того, как скрипт
-                        загрузится.
-                        <br>
-                        Пользователь может знакомиться с содержимым страницы, читать её, но графические компоненты пока
-                        отключены.
-                        <br>
-                        Поэтому обязательно должна быть индикация загрузки, нерабочие кнопки – отключены с помощью CSS
-                        или
-                        другим образом. Чтобы пользователь явно видел, что уже готово, а что пока нет.
-                    </p>
-                    <p>На практике <code>defer</code> используется для скриптов, которым требуется доступ ко всему DOM
-                        и/или важен их
-                        относительный порядок выполнения.</p>
+          <p>При этом событие <code>submit</code> не генерируется. Предполагается, что если программист
+            вызывает метод
+            <code>form.submit()</code>, то он уже выполнил всю соответствующую обработку.</p>
+        </dd>
+        <dt class="term-item">Страница: DOMContentLoaded, load, beforeunload, unload</dt>
+        <dd class="description-item hide">
+          <p>События загрузки страницы:
+            <ul>
+              <li><code>DOMContentLoaded</code> генерируется на <code>document</code>, когда
+                <code>DOM</code> готов. Мы можем применить
+                JavaScript к
+                элементам на данном этапе.
+                <ul>
+                  <li>Скрипты, вроде <code>'script' ... '/script'</code> или <code>'script
+                      src="..."''/script'</code> блокируют
+                    <code>DOMContentLoaded</code>,
+                    браузер ждёт, пока они
+                    выполнятся.</li>
+                  <li>Изображения и другие ресурсы тоже всё ещё могут продолжать загружаться.</li>
+                </ul>
+              </li>
+              <li>Событие <code>load</code> на <code>window</code> генерируется, когда страница и все
+                ресурсы загружены. Мы редко
+                его
+                используем, потому что обычно нет нужды ждать так долго.</li>
+              <li>Событие <code>beforeunload</code> на <code>window</code> генерируется, когда
+                пользователь покидает страницу. Если
+                мы
+                отменим
+                событие, браузер спросит, на самом ли деле пользователь хочет уйти (например, у нас есть
+                несохранённые изменения).</li>
+              <li>Событие <code>unload</code> на <code>window</code> генерируется, когда пользователь
+                окончательно уходит, в
+                обработчике
+                мы
+                можем делать только простые вещи, которые ни о чём не спрашивают пользователя и не
+                заставляют его
+                ждать. Из-за этих ограничений оно редко используется. Мы можем послать сетевой запрос с
+                помощью
+                <code>navigator.sendBeacon</code>.</li>
+              <li><code>document.readyState</code> – текущее состояние документа, изменения можно
+                отследить с помощью
+                события
+                <code>readystatechange</code>:
+                <ul>
+                  <li><code>loading</code> – документ грузится.</li>
+                  <li><code>interactive</code> – документ прочитан, происходит примерно в то же время,
+                    что и
+                    <code>DOMContentLoaded</code>, но до
+                    него.</li>
+                  <li><code>complete</code> – документ и ресурсы загружены, происходит примерно в то
+                    же время, что
+                    и
+                    <code>window.onload</code>, но
+                    до него.</li>
+                </ul>
+              </li>
+            </ul>
+          </p>
+        </dd>
+        <dt class="term-item">Скрипты: async, defer</dt>
+        <dd class="description-item hide">
+          <p><code>async</code><br> Порядок загрузки (кто загрузится первым, тот и сработает). Не имеет
+            значения. Может
+            загрузиться и выполниться до того, как страница полностью загрузится. Такое случается, если
+            скрипты
+            маленькие или хранятся в кеше, а документ достаточно большой.</p>
+          <p><code>defer</code><br> Порядок документа (как расположены в документе). Выполняется после того,
+            как документ
+            загружен
+            и обработан (ждёт), непосредственно перед <code>DOMContentLoaded</code>.</p>
+          <p>Страница без скриптов должна быть рабочей</p>
+          <p>Когда вы используете <code>defer</code>, страница видна до того, как скрипт
+            загрузится.
+            <br>
+            Пользователь может знакомиться с содержимым страницы, читать её, но графические компоненты пока
+            отключены.
+            <br>
+            Поэтому обязательно должна быть индикация загрузки, нерабочие кнопки – отключены с помощью CSS
+            или
+            другим образом. Чтобы пользователь явно видел, что уже готово, а что пока нет.
+          </p>
+          <p>На практике <code>defer</code> используется для скриптов, которым требуется доступ ко всему DOM
+            и/или важен их
+            относительный порядок выполнения.</p>
 
-                    <p>А <code>async</code> хорош для независимых скриптов, например счётчиков и рекламы, относительный
-                        порядок
-                        выполнения которых не играет роли.</p>
-                </dd>
-            </dl>
-        </section>
-        <section class="terms react-terms hide">
-            <dl>
-                <dt class="term-item"></dt>
-                <dd class="description-item hide">
+          <p>А <code>async</code> хорош для независимых скриптов, например счётчиков и рекламы, относительный
+            порядок
+            выполнения которых не играет роли.</p>
+        </dd>
+      </dl>
+    </section>
 
-                </dd>
-            </dl>
-        </section>
-    </main>
+    <section class="terms ts-terms hide" data-name="ts">
+      <dl>
+        <dt class="term-item">my notes</dt>
+        <dd class="description-item hide">
+          <p>
+            class User { constructor(<code>private</code> name<code>: string</code>) {} }
+          </p>
+          <p>function getObjectValue <code>&lt;T extends object, R extends keyof T&gt;</code> (obj<code>: T</code>,
+            key<code>: R</code>) { return
+            obj[key] }</p>
+          <p>
+            <pre>
+<code>interface Car { model: string, year: number }</code>
+function createAndValidateCar(model<code>: string</code>, year<code>: number</code>) <code>: Car</code> {
+  const car: <code>Partial&lt;Car&gt;</code> = {}
+  //...
+  return car <code>as Car</code>
+}</pre>
+          </p>
+          <p>
+            const cars: <code>Readonly&lt;Array&lt;string&gt;&gt;</code> = ['tea', 'coffee']
+          </p>
+          <p>
 
-    <script type="module" src="index.js"></script>
+          </p>
+        </dd>
+        <dt class="term-item">namespace</dt>
+        <dd class="description-item hide">
+          <p>
+            <pre><code>namespace</code> Form {
+  <code>export type FormType = 'inline' | 'block'</code>
+  <code>export type FormState = 'active' | 'disabled'</code>
+
+  <code>export interface</code> FormInfo {
+    type<code>: FormType</code>
+    state<code>: FormState</code>
+  }
+}</pre>
+          </p>
+          <p>
+<pre><code>/// &lt;reference path="form-namespace.ts" /&gt;</code>
+  <code>namespace</code> Form {
+    class MyForm {
+      <code>private type: FormType</code> = 'inline'
+      <code>private state: FormState</code> = 'active'
+  
+      constructor(<code>public</code> email<code>: string</code>) {
+      }
+  
+      getInfo()<code>: FormInfo</code> {
+        return {
+          type: this.type,
+          state: this.state
+        }
+      }
+    }
+  
+    <code>export const myForm = new MyForm('v@mail.ru')</code>
+  }
+</pre>
+          </p>
+        </dd>
+        <dt class="term-item">cheatsheets</dt>
+        <dd class="description-item hide">
+          <a href="https://www.typescriptlang.org/cheatsheets">cheatsheets</a>
+          <div class="cheatsheets-images">
+            <img
+              src="https://www.typescriptlang.org/static/TypeScript%20Control%20Flow%20Analysis-8a549253ad8470850b77c4c5c351d457.png"
+              alt="first">
+            <img
+              src="https://www.typescriptlang.org/static/TypeScript%20Interfaces-34f1ad12132fb463bd1dfe5b85c5b2e6.png"
+              alt="second">
+            <img src="https://www.typescriptlang.org/static/TypeScript%20Types-4cbf7b9d45dc0ec8d18c6c7a0c516114.png"
+              alt="third">
+            <img src="https://www.typescriptlang.org/static/TypeScript%20Classes-83cc6f8e42ba2002d5e2c04221fa78f9.png"
+              alt="fourth">
+          </div>
+        </dd>
+      </dl>
+    </section>
+
+    <section class="terms react-terms hide">
+      <dl>
+        <dt class="term-item"></dt>
+        <dd class="description-item hide">
+
+        </dd>
+      </dl>
+    </section>
+
+  </main>
+
+  <!-- <script type="module" src="index.js"></script> -->
 </body>
 
 </html>
